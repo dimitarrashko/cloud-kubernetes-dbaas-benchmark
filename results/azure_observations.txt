@@ -1,0 +1,8 @@
+=== Azure elasticity final state ===
+Sat, Aug 29, 2026  6:05:55 PM
+NAME              REFERENCE                    TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+cloud-benchmark   Deployment/cloud-benchmark   cpu: 5%/60%   1         10        3          19h
+NAME                               READY   STATUS    RESTARTS      AGE
+cloud-benchmark-79f6ff599d-mcxcv   1/1     Running   1 (11m ago)   19h
+cloud-benchmark-79f6ff599d-mq5ft   1/1     Running   0             2m38s
+cloud-benchmark-79f6ff599d-snb9f   1/1     Running   0             2m38s

@@ -1,0 +1,8 @@
+{
+    "Class": "db.t3.micro",
+    "Engine": "postgres",
+    "Version": "18.3",
+    "StorageGB": 20,
+    "AZ": "eu-central-1b",
+    "MultiAZ": false
+}

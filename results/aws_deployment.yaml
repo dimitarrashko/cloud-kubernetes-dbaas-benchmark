@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"cloud-benchmark","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"cloud-benchmark"}},"template":{"metadata":{"labels":{"app":"cloud-benchmark"}},"spec":{"containers":[{"env":[{"name":"PROVIDER","value":"aws"}],"envFrom":[{"secretRef":{"name":"database-secret"}}],"image":"869935096045.dkr.ecr.eu-central-1.amazonaws.com/cloud-benchmark:latest","imagePullPolicy":"Always","livenessProbe":{"failureThreshold":6,"httpGet":{"path":"/health","port":8080},"initialDelaySeconds":15,"periodSeconds":10,"timeoutSeconds":5},"name":"cloud-benchmark","ports":[{"containerPort":8080}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"/health","port":8080},"initialDelaySeconds":5,"periodSeconds":10,"timeoutSeconds":3},"resources":{"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"250m","memory":"128Mi"}}}]}}}}
+  creationTimestamp: "2026-08-27T23:06:09Z"
+  generation: 10
+  name: cloud-benchmark
+  namespace: default
+  resourceVersion: "22312"
+  uid: cd68400b-9bb9-45a2-bc80-b603467c6490
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cloud-benchmark
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2026-08-28T02:14:45+02:00"
+      labels:
+        app: cloud-benchmark
+    spec:
+      containers:
+      - env:
+        - name: PROVIDER
+          value: aws
+        envFrom:
+        - secretRef:
+            name: database-secret
+        image: 869935096045.dkr.ecr.eu-central-1.amazonaws.com/cloud-benchmark:latest
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 6
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: cloud-benchmark
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 3
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 250m
+            memory: 128Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2026-08-27T23:17:34Z"
+    lastUpdateTime: "2026-08-28T00:15:00Z"
+    message: ReplicaSet "cloud-benchmark-5fd9676d56" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2026-08-28T00:19:50Z"
+    lastUpdateTime: "2026-08-28T00:19:50Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 10
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

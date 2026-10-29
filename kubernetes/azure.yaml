@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-benchmark
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-benchmark
+  template:
+    metadata:
+      labels:
+        app: cloud-benchmark
+    spec:
+      containers:
+        - name: cloud-benchmark
+          image: cloudbenchmark28471.azurecr.io/cloud-benchmark:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: database-secret
+          env:
+            - name: PROVIDER
+              value: "azure"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-benchmark-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: cloud-benchmark
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

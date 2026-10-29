@@ -1,0 +1,87 @@
+{
+  "administratorLogin": "benchmarkadmin",
+  "administratorLoginPassword": null,
+  "authConfig": {
+    "activeDirectoryAuth": "Disabled",
+    "passwordAuth": "Enabled",
+    "tenantId": null
+  },
+  "availabilityZone": "2",
+  "backup": {
+    "backupRetentionDays": 7,
+    "earliestRestoreDate": "2026-08-28T19:20:21.680884+00:00",
+    "geoRedundantBackup": "Disabled"
+  },
+  "cluster": null,
+  "createMode": null,
+  "dataEncryption": {
+    "geoBackupEncryptionKeyStatus": null,
+    "geoBackupFederatedIdentityClientId": null,
+    "geoBackupKeyUri": null,
+    "geoBackupUserAssignedIdentityId": null,
+    "primaryEncryptionKeyStatus": null,
+    "primaryFederatedIdentityClientId": null,
+    "primaryKeyUri": null,
+    "primaryUserAssignedIdentityId": null,
+    "type": "SystemManaged"
+  },
+  "fullyQualifiedDomainName": "cloud-benchmark-pg-28471.postgres.database.azure.com",
+  "highAvailability": {
+    "mode": "Disabled",
+    "standbyAvailabilityZone": null,
+    "state": "NotEnabled"
+  },
+  "id": "/subscriptions/10798b87-2e57-428b-a2a4-c93cfffb5eff/resourceGroups/cloud-benchmark-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/cloud-benchmark-pg-28471",
+  "identity": null,
+  "location": "Poland Central",
+  "maintenanceWindow": {
+    "customWindow": "Disabled",
+    "dayOfWeek": 0,
+    "startHour": 0,
+    "startMinute": 0
+  },
+  "minorVersion": "15",
+  "name": "cloud-benchmark-pg-28471",
+  "network": {
+    "delegatedSubnetResourceId": "/subscriptions/10798b87-2e57-428b-a2a4-c93cfffb5eff/resourceGroups/cloud-benchmark-rg/providers/Microsoft.Network/virtualNetworks/cloud-benchmark-vnet/subnets/postgres-subnet",
+    "privateDnsZoneArmResourceId": "/subscriptions/10798b87-2e57-428b-a2a4-c93cfffb5eff/resourceGroups/cloud-benchmark-rg/providers/Microsoft.Network/privateDnsZones/cloudbenchmark28471.postgres.database.azure.com",
+    "publicNetworkAccess": "Disabled"
+  },
+  "pointInTimeUtc": null,
+  "privateEndpointConnections": null,
+  "replica": {
+    "capacity": 5,
+    "promoteMode": null,
+    "promoteOption": null,
+    "replicationState": null,
+    "role": "Primary"
+  },
+  "replicaCapacity": 5,
+  "replicationRole": "Primary",
+  "resourceGroup": "cloud-benchmark-rg",
+  "sku": {
+    "name": "Standard_B1ms",
+    "tier": "Burstable"
+  },
+  "sourceServerResourceId": null,
+  "state": "Ready",
+  "storage": {
+    "autoGrow": "Disabled",
+    "iops": 120,
+    "storageSizeGb": 32,
+    "throughput": null,
+    "tier": "P4",
+    "type": "Premium_LRS"
+  },
+  "systemData": {
+    "createdAt": "2026-08-28T19:13:45.407263+00:00",
+    "createdBy": null,
+    "createdByType": null,
+    "lastModifiedAt": null,
+    "lastModifiedBy": null,
+    "lastModifiedByType": null
+  },
+  "tags": null,
+  "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+  "version": "16"
+}

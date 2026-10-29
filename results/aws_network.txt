@@ -1,0 +1,3 @@
+VPC_ID=vpc-0eeaefbfb099571db
+CLUSTER_SG=sg-06983cfcd7cd38219
+RDS_ENDPOINT=cloud-benchmark-db.cry02k6eqswe.eu-central-1.rds.amazonaws.com
