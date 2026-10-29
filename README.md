@@ -89,7 +89,7 @@ The report discusses performance differences, saturation behavior, autoscaling r
 - `scripts/` – benchmark plotting scripts
 - `results/` – raw measurements and plots
 - `report/` – LaTeX documentation and compiled report
-- `docs/` – architecture and deployment documentation
+
 
 ## Deployment Status
 
